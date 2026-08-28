@@ -1,0 +1,41 @@
+{
+  "name": "Sala Bảo Nguyên Hotel",
+  "location": "Nhơn Trạch",
+  "tagline": "Wake up somewhere beautiful.",
+  "description": "Một khoảng nghỉ yên tĩnh giữa nhịp sống ven biển Đà Nẵng. Morning Dew mang đến những căn phòng ngập nắng, dịch vụ vừa đủ và cảm giác như trở về nhà.",
+  "heroImage": "/uploads/1787909491757-txzra7bjobr.jpg",
+  "contact": "hello@morningdew.vn",
+  "phone": "+84 236 389 6868",
+  "amenities": [
+    "Bể bơi vô cực",
+    "Bữa sáng địa phương",
+    "Xe đạp miễn phí",
+    "Wi-Fi tốc độ cao"
+  ],
+  "rooms": [
+    {
+      "id": "garden-suite",
+      "name": "Garden Suite",
+      "description": "Không gian riêng tư nhìn ra khu vườn nhiệt đới, phù hợp cho những ngày nghỉ thật chậm.",
+      "price": "2.450.000",
+      "size": "42 m²",
+      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "ocean-room",
+      "name": "Ocean Room",
+      "description": "Ban công hướng biển, ánh sáng dịu và mọi tiện nghi cần thiết cho một kỳ nghỉ thư thái.",
+      "price": "3.200.000",
+      "size": "48 m²",
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "name": "Phòng vip",
+      "price": "500",
+      "size": "200m2",
+      "image": "/uploads/1787909735498-w60xqt0xsla.jpg",
+      "description": "Có cửa sổ",
+      "id": "room-1787909754200"
+    }
+  ]
+}
