@@ -1,7 +1,6 @@
 node_modules/
 .env
 .env.local
-package-lock.json
 .DS_Store
 *.log
 npm-debug.log*
@@ -9,3 +8,5 @@ public/uploads/*
 !public/uploads/.gitkeep
 dist/
 build/
+.claude/
+.gemini/
