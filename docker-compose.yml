@@ -1,0 +1,12 @@
+services:
+  staynest-hotel:
+    build: .
+    container_name: staynest-hotel
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+    volumes:
+      - ./data:/app/data
+      - ./public/uploads:/app/public/uploads

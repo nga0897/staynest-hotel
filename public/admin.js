@@ -19,6 +19,9 @@ function connectImagePicker(fileId, urlName, previewId) {
   const fileInput = document.getElementById(fileId);
   const urlInput = hotelForm.elements[urlName] || roomForm.elements[urlName];
   const preview = document.getElementById(previewId);
+
+  if (!fileInput || !urlInput || !preview) return;
+
   fileInput.addEventListener("change", async () => {
     if (!fileInput.files[0]) return;
     try {
@@ -32,6 +35,7 @@ function connectImagePicker(fileId, urlName, previewId) {
       fileInput.value = "";
     }
   });
+
   urlInput.addEventListener("input", () => {
     if (urlInput.value) {
       preview.src = urlInput.value;
@@ -46,6 +50,7 @@ function fillForm() {
     if (field) field.value = Array.isArray(value) ? value.join("\n") : value;
   });
 }
+
 function renderRooms() {
   document.getElementById("adminRooms").innerHTML = hotelData.rooms
     .map(
@@ -53,6 +58,7 @@ function renderRooms() {
         `<article class="admin-room"><img src="${room.image}" alt=""><div><h3>${room.name}</h3><p>${room.size} · ${room.price}đ / đêm</p></div><button class="delete-room" data-id="${room.id}" title="Xóa phòng">×</button></article>`,
     )
     .join("");
+
   document.querySelectorAll(".delete-room").forEach((button) =>
     button.addEventListener("click", async () => {
       if (!confirm("Xóa phòng này?")) return;
@@ -64,6 +70,7 @@ function renderRooms() {
     }),
   );
 }
+
 async function load() {
   const response = await fetch("/api/hotel");
   hotelData = await response.json();
@@ -71,10 +78,11 @@ async function load() {
   renderRooms();
   saveStatus.textContent = "Đã kết nối";
 }
+
 hotelForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const body = Object.fromEntries(new FormData(hotelForm));
-  body.amenities = body.amenities
+  body.amenities = (body.amenities || "")
     .split("\n")
     .map((item) => item.trim())
     .filter(Boolean);
@@ -87,9 +95,11 @@ hotelForm.addEventListener("submit", async (event) => {
   saveStatus.textContent =
     "Đã lưu lúc " + new Date().toLocaleTimeString("vi-VN");
 });
+
 document
   .getElementById("toggleRoomForm")
   .addEventListener("click", () => roomForm.classList.toggle("hidden"));
+
 roomForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const body = Object.fromEntries(new FormData(roomForm));
@@ -105,8 +115,11 @@ roomForm.addEventListener("submit", async (event) => {
   roomForm.classList.add("hidden");
   renderRooms();
 });
+
 connectImagePicker("heroImageFile", "heroImage", "heroPreview");
+connectImagePicker("webchatImageFile", "webchatImage", "webchatPreview");
 connectImagePicker("roomImageFile", "image", "roomPreview");
+
 load().catch(() => {
   saveStatus.textContent = "Không kết nối được server";
 });

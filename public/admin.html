@@ -1,8 +1,96 @@
 <!doctype html>
 <html lang="vi">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Quản trị | Morning Dew</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/admin.css"></head>
-<body class="admin-body"><header class="site-header"><a class="brand" href="/"><span class="brand-mark">✦</span>MORNING DEW</a><a class="header-action" href="/">Xem trang khách ↗</a></header>
-<main class="admin-main"><div class="admin-title"><div><p class="eyebrow">CONTENT MANAGER</p><h1>Quản trị<br><em>khách sạn.</em></h1></div><span id="saveStatus">Đang tải dữ liệu...</span></div>
-<form id="hotelForm" class="admin-form"><section class="admin-panel"><div class="panel-label">01 / THÔNG TIN CHUNG</div><div class="form-grid"><label>Tên khách sạn<input name="name" required></label><label>Địa điểm<input name="location" required></label><label class="wide">Tagline<input name="tagline" required></label><label class="wide">Mô tả<textarea name="description" rows="4" required></textarea></label><label class="wide">Ảnh hero</label><div class="image-upload wide"><input name="heroImage" type="text" placeholder="Dán URL ảnh hoặc chọn file bên dưới" required><input id="heroImageFile" type="file" accept="image/*"><img id="heroPreview" class="upload-preview hidden" alt="Xem trước ảnh hero"></div></div></section>
-<section class="admin-panel"><div class="panel-label">02 / TIỆN NGHI</div><label>Danh sách tiện nghi <small>(mỗi tiện nghi một dòng)</small><textarea name="amenities" rows="5"></textarea></label></section><section class="admin-panel"><div class="panel-label">03 / LIÊN HỆ</div><div class="form-grid"><label>Email<input name="contact" type="email" required></label><label>Số điện thoại<input name="phone" required></label></div></section><button class="save-button" type="submit">Lưu thay đổi <span>↗</span></button></form>
-<section class="rooms-admin"><div class="admin-title rooms-title"><div><p class="eyebrow">ROOM INVENTORY</p><h2>Phòng nghỉ</h2></div><button id="toggleRoomForm" class="outline-button" type="button">+ Thêm phòng</button></div><form id="roomForm" class="room-form hidden"><input name="name" placeholder="Tên phòng" required><input name="price" placeholder="Giá / đêm" required><input name="size" placeholder="Diện tích" required><div class="image-upload"><input name="image" type="text" placeholder="Dán URL ảnh hoặc chọn file"><input id="roomImageFile" type="file" accept="image/*"><img id="roomPreview" class="upload-preview hidden" alt="Xem trước ảnh phòng"></div><textarea name="description" placeholder="Mô tả phòng" required></textarea><button class="save-button" type="submit">Thêm phòng <span>↗</span></button></form><div id="adminRooms" class="admin-rooms"></div></section></main><script src="/admin.js"></script></body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản trị | Bảo Nguyên Hotel</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body class="admin-body">
+  <header class="site-header">
+    <a class="brand" href="/"><span class="brand-mark">✦</span>Bảo Nguyên Hotel</a>
+    <a class="header-action" href="/">Xem trang khách ↗</a>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-title">
+      <div>
+        <p class="eyebrow">CONTENT MANAGER</p>
+        <h1>Quản trị<br><em>khách sạn.</em></h1>
+      </div>
+      <span id="saveStatus">Đang tải dữ liệu...</span>
+    </div>
+
+    <form id="hotelForm" class="admin-form">
+      <section class="admin-panel">
+        <div class="panel-label">01 / THÔNG TIN CHUNG</div>
+        <div class="form-grid">
+          <label>Tên khách sạn<input name="name" required></label>
+          <label>Địa điểm<input name="location" required></label>
+          <label class="wide">Tagline<input name="tagline" required></label>
+          <label class="wide">Mô tả<textarea name="description" rows="4" required></textarea></label>
+          <label class="wide">Ảnh hero</label>
+          <div class="image-upload wide">
+            <input name="heroImage" type="text" placeholder="Dán URL ảnh hoặc chọn file bên dưới" required>
+            <input id="heroImageFile" type="file" accept="image/*">
+            <img id="heroPreview" class="upload-preview hidden" alt="Xem trước ảnh hero">
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-panel">
+        <div class="panel-label">02 / TIỆN NGHI</div>
+        <label>Danh sách tiện nghi <small>(mỗi tiện nghi một dòng)</small>
+          <textarea name="amenities" rows="5"></textarea>
+        </label>
+      </section>
+
+      <section class="admin-panel">
+        <div class="panel-label">03 / LIÊN HỆ</div>
+        <div class="form-grid">
+          <label>Email<input name="contact" type="email" required></label>
+          <label>Số điện thoại<input name="phone" required></label>
+          <label class="wide">Fanpage Facebook<input name="facebook" type="url" placeholder="https://facebook.com/"></label>
+          <label class="wide">Ảnh Webchat</label>
+          <div class="image-upload wide">
+            <input name="webchatImage" type="text" placeholder="Dán URL ảnh hoặc chọn file dưới đây">
+            <input id="webchatImageFile" type="file" accept="image/*">
+            <img id="webchatPreview" class="upload-preview hidden" alt="Xem trước ảnh webchat">
+          </div>
+        </div>
+      </section>
+
+      <button class="save-button" type="submit">Lưu thay đổi <span>↗</span></button>
+    </form>
+
+    <section class="rooms-admin">
+      <div class="admin-title rooms-title">
+        <div>
+          <p class="eyebrow">ROOM INVENTORY</p>
+          <h2>Phòng nghỉ</h2>
+        </div>
+        <button id="toggleRoomForm" class="outline-button" type="button">+ Thêm phòng</button>
+      </div>
+
+      <form id="roomForm" class="room-form hidden">
+        <input name="name" placeholder="Tên phòng" required>
+        <input name="price" placeholder="Giá / đêm" required>
+        <input name="size" placeholder="Diện tích" required>
+        <div class="image-upload">
+          <input name="image" type="text" placeholder="Dán URL ảnh hoặc chọn file">
+          <input id="roomImageFile" type="file" accept="image/*">
+          <img id="roomPreview" class="upload-preview hidden" alt="Xem trước ảnh phòng">
+        </div>
+        <textarea name="description" placeholder="Mô tả phòng" required></textarea>
+        <button class="save-button" type="submit">Thêm phòng <span>↗</span></button>
+      </form>
+
+      <div id="adminRooms" class="admin-rooms"></div>
+    </section>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+</html>
+

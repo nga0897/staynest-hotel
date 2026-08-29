@@ -1,34 +1,19 @@
 {
   "name": "Sala Bảo Nguyên Hotel",
   "location": "Nhơn Trạch",
-  "tagline": "Wake up somewhere beautiful.",
-  "description": "Một khoảng nghỉ yên tĩnh giữa nhịp sống ven biển Đà Nẵng. Morning Dew mang đến những căn phòng ngập nắng, dịch vụ vừa đủ và cảm giác như trở về nhà.",
-  "heroImage": "/uploads/1787909491757-txzra7bjobr.jpg",
-  "contact": "hello@morningdew.vn",
+  "address": "Huỳnh Văn Nghệ, Hiệp Phước, Nhơn Trạch, Đồng Nai, Việt Nam",
+  "tagline": "Nơi nghỉ ngơi, nơi tận hưởng.",
+  "description": "Chào mừng bạn đến với SALA BẢO NGUYÊN HOTEL – không gian lưu trú hiện đại, tiện nghi và thoải mái. Chúng tôi mang đến trải nghiệm nghỉ ngơi trọn vẹn với dịch vụ tận tâm, không gian sạch sẽ và sự chăm sóc chu đáo trong từng khoảnh khắc.\n                                                                                                                                                                                                                                                          \n\n\nHotline : (+84) 079 883 6968\n",
+  "heroImage": "/uploads/1787966715886-lpgd8ko9zm.png",
+  "contact": "baonguyenhotel@gmail.com",
   "phone": "+84 236 389 6868",
+  "facebook": "https://www.facebook.com/",
+  "webchatImage": "/uploads/1787965691010-wl5ryyck1z.jpg",
   "amenities": [
-    "Bể bơi vô cực",
     "Bữa sáng địa phương",
-    "Xe đạp miễn phí",
     "Wi-Fi tốc độ cao"
   ],
   "rooms": [
-    {
-      "id": "garden-suite",
-      "name": "Garden Suite",
-      "description": "Không gian riêng tư nhìn ra khu vườn nhiệt đới, phù hợp cho những ngày nghỉ thật chậm.",
-      "price": "2.450.000",
-      "size": "42 m²",
-      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      "id": "ocean-room",
-      "name": "Ocean Room",
-      "description": "Ban công hướng biển, ánh sáng dịu và mọi tiện nghi cần thiết cho một kỳ nghỉ thư thái.",
-      "price": "3.200.000",
-      "size": "48 m²",
-      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80"
-    },
     {
       "name": "Phòng vip",
       "price": "500",
@@ -36,6 +21,14 @@
       "image": "/uploads/1787909735498-w60xqt0xsla.jpg",
       "description": "Có cửa sổ",
       "id": "room-1787909754200"
+    },
+    {
+      "name": "Phòng tiêu chuẩn",
+      "price": "380.000đ",
+      "size": "20m2",
+      "image": "/uploads/1787959932698-8ixypprmbgc.jpg",
+      "description": "Phòng 1 gường k có cửa sổ",
+      "id": "room-1787959948916"
     }
   ]
 }
