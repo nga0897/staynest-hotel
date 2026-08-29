@@ -4,12 +4,12 @@ const path = require("path");
 const multer = require("multer");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const DEFAULT_PORT = Number(process.env.PORT || 3001);
 const dataPath = path.join(__dirname, "data", "hotel.json");
 const uploadPath = path.join(__dirname, "public", "uploads");
 fs.mkdirSync(uploadPath, { recursive: true });
 
-const imageUpload = multer({
+const mediaUpload = multer({
   storage: multer.diskStorage({
     destination: uploadPath,
     filename: (_req, file, callback) => {
@@ -20,20 +20,24 @@ const imageUpload = multer({
       );
     },
   }),
-  limits: { fileSize: 5 * 1024 * 1024 },
+  limits: { fileSize: 20 * 1024 * 1024 },
   fileFilter: (_req, file, callback) => {
-    callback(null, file.mimetype.startsWith("image/"));
+    const isAllowed =
+      file.mimetype.startsWith("image/") || file.mimetype.startsWith("video/");
+    callback(null, isAllowed);
   },
 });
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.post("/api/upload", imageUpload.single("image"), (req, res) => {
+app.post("/api/upload", mediaUpload.single("image"), (req, res) => {
   if (!req.file)
     return res
       .status(400)
-      .json({ error: "Vui lòng chọn một file ảnh hợp lệ dưới 5 MB" });
+      .json({
+        error: "Vui lòng chọn một file ảnh hoặc video hợp lệ dưới 20 MB",
+      });
   res.status(201).json({ url: `/uploads/${req.file.filename}` });
 });
 
@@ -75,6 +79,22 @@ app.delete("/api/rooms/:id", (req, res) => {
 app.get("/admin", (_req, res) =>
   res.sendFile(path.join(__dirname, "public", "admin.html")),
 );
-app.listen(PORT, () =>
-  console.log(`StayNest đang chạy tại http://localhost:${PORT}`),
-);
+
+function startServer(port) {
+  const server = app.listen(port, () => {
+    console.log(`StayNest đang chạy tại http://localhost:${port}`);
+  });
+
+  server.on("error", (error) => {
+    if (error.code === "EADDRINUSE") {
+      const nextPort = port + 1;
+      console.log(`Port ${port} đang bận, thử chạy trên cổng ${nextPort}...`);
+      startServer(nextPort);
+      return;
+    }
+
+    throw error;
+  });
+}
+
+startServer(DEFAULT_PORT);

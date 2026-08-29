@@ -1,7 +1,45 @@
 const hotelForm = document.getElementById("hotelForm");
 const roomForm = document.getElementById("roomForm");
 const saveStatus = document.getElementById("saveStatus");
+const languageKeys = ["vi", "zh", "ko"];
 let hotelData;
+
+function getTextByLang(value, lang) {
+  if (!value) return "";
+  if (typeof value === "object" && !Array.isArray(value)) {
+    return value[lang] || value.vi || value.zh || value.ko || "";
+  }
+  return value;
+}
+
+function getListByLang(value, lang) {
+  if (Array.isArray(value)) return value;
+  if (value && typeof value === "object") {
+    return value[lang] || value.vi || value.zh || value.ko || [];
+  }
+  return [];
+}
+
+function buildMultilingualObject(prefix, form) {
+  const output = {};
+  languageKeys.forEach((lang) => {
+    const value = (form.get(`${prefix}_${lang}`) || "").trim();
+    if (value) output[lang] = value;
+  });
+  return Object.keys(output).length ? output : "";
+}
+
+function buildAmenityObject(form) {
+  const output = {};
+  languageKeys.forEach((lang) => {
+    const value = (form.get(`amenities_${lang}`) || "")
+      .split("\n")
+      .map((item) => item.trim())
+      .filter(Boolean);
+    if (value.length) output[lang] = value;
+  });
+  return Object.keys(output).length ? output : [];
+}
 
 async function uploadImage(file) {
   const formData = new FormData();
@@ -45,18 +83,70 @@ function connectImagePicker(fileId, urlName, previewId) {
 }
 
 function fillForm() {
-  Object.entries(hotelData).forEach(([key, value]) => {
-    const field = hotelForm.elements[key];
-    if (field) field.value = Array.isArray(value) ? value.join("\n") : value;
+  ["name", "location", "tagline", "description"].forEach((key) => {
+    languageKeys.forEach((lang) => {
+      const field = hotelForm.elements[`${key}_${lang}`];
+      if (field) field.value = getTextByLang(hotelData[key], lang);
+    });
   });
+
+  languageKeys.forEach((lang) => {
+    const field = hotelForm.elements[`amenities_${lang}`];
+    if (field) {
+      const list = getListByLang(hotelData.amenities, lang);
+      field.value = list.join("\n");
+    }
+  });
+
+  if (hotelForm.elements.contact)
+    hotelForm.elements.contact.value = hotelData.contact || "";
+  if (hotelForm.elements.phone)
+    hotelForm.elements.phone.value = hotelData.phone || "";
+  if (hotelForm.elements.facebook)
+    hotelForm.elements.facebook.value = hotelData.facebook || "";
+
+  if (hotelForm.elements.heroImage) {
+    hotelForm.elements.heroImage.value = hotelData.heroImage || "";
+    if (hotelData.heroImage) {
+      document.getElementById("heroPreview").src = hotelData.heroImage;
+      document.getElementById("heroPreview").classList.remove("hidden");
+    }
+  }
+
+  if (hotelForm.elements.video) {
+    hotelForm.elements.video.value = hotelData.video || "";
+    if (hotelData.video) {
+      const videoPreview = document.getElementById("videoPreview");
+      if (videoPreview) {
+        videoPreview.src = hotelData.video;
+        videoPreview.classList.remove("hidden");
+      }
+    }
+  }
+
+  if (hotelForm.elements.webchatImage) {
+    hotelForm.elements.webchatImage.value = hotelData.webchatImage || "";
+    if (hotelData.webchatImage) {
+      document.getElementById("webchatPreview").src = hotelData.webchatImage;
+      document.getElementById("webchatPreview").classList.remove("hidden");
+    }
+  }
 }
 
 function renderRooms() {
-  document.getElementById("adminRooms").innerHTML = hotelData.rooms
-    .map(
-      (room) =>
-        `<article class="admin-room"><img src="${room.image}" alt=""><div><h3>${room.name}</h3><p>${room.size} · ${room.price}đ / đêm</p></div><button class="delete-room" data-id="${room.id}" title="Xóa phòng">×</button></article>`,
-    )
+  document.getElementById("adminRooms").innerHTML = (hotelData.rooms || [])
+    .map((room) => {
+      const roomName = getTextByLang(room.name, "vi") || "Phòng";
+      const roomSize = room.size || "";
+      const roomPrice = room.price || "";
+      const roomPriceText =
+        roomPrice.includes("đ") ||
+        roomPrice.includes("₫") ||
+        roomPrice.includes("$")
+          ? roomPrice
+          : `${roomPrice}đ`;
+      return `<article class="admin-room"><img src="${room.image}" alt=""><div><h3>${roomName}</h3><p>${roomSize} · ${roomPriceText} / đêm</p></div><button class="delete-room" data-id="${room.id}" title="Xóa phòng">×</button></article>`;
+    })
     .join("");
 
   document.querySelectorAll(".delete-room").forEach((button) =>
@@ -81,11 +171,22 @@ async function load() {
 
 hotelForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const body = Object.fromEntries(new FormData(hotelForm));
-  body.amenities = (body.amenities || "")
-    .split("\n")
-    .map((item) => item.trim())
-    .filter(Boolean);
+
+  const formData = new FormData(hotelForm);
+  const body = {
+    heroImage: formData.get("heroImage") || hotelData.heroImage,
+    contact: formData.get("contact") || hotelData.contact,
+    phone: formData.get("phone") || hotelData.phone,
+    facebook: formData.get("facebook") || hotelData.facebook,
+    video: formData.get("video") || hotelData.video,
+    webchatImage: formData.get("webchatImage") || hotelData.webchatImage,
+    name: buildMultilingualObject("name", formData),
+    location: buildMultilingualObject("location", formData),
+    tagline: buildMultilingualObject("tagline", formData),
+    description: buildMultilingualObject("description", formData),
+    amenities: buildAmenityObject(formData),
+  };
+
   const response = await fetch("/api/hotel", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -94,6 +195,7 @@ hotelForm.addEventListener("submit", async (event) => {
   hotelData = await response.json();
   saveStatus.textContent =
     "Đã lưu lúc " + new Date().toLocaleTimeString("vi-VN");
+  fillForm();
 });
 
 document
@@ -102,21 +204,37 @@ document
 
 roomForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const body = Object.fromEntries(new FormData(roomForm));
-  if (!body.image)
-    return (saveStatus.textContent = "Hãy chọn ảnh hoặc nhập URL ảnh phòng");
+
+  const formData = new FormData(roomForm);
+  const body = {
+    price: formData.get("price"),
+    size: formData.get("size"),
+    image: formData.get("image"),
+    name: buildMultilingualObject("name", formData),
+    description: buildMultilingualObject("description", formData),
+  };
+
+  if (!body.image) {
+    saveStatus.textContent = "Hãy chọn ảnh hoặc nhập URL ảnh phòng";
+    return;
+  }
+
   const response = await fetch("/api/rooms", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  hotelData.rooms.push(await response.json());
+
+  const addedRoom = await response.json();
+  hotelData.rooms.push(addedRoom);
   roomForm.reset();
   roomForm.classList.add("hidden");
   renderRooms();
+  saveStatus.textContent = "Đã thêm phòng";
 });
 
 connectImagePicker("heroImageFile", "heroImage", "heroPreview");
+connectImagePicker("videoFile", "video", "videoPreview");
 connectImagePicker("webchatImageFile", "webchatImage", "webchatPreview");
 connectImagePicker("roomImageFile", "image", "roomPreview");
 

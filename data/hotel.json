@@ -1,34 +1,97 @@
 {
-  "name": "Sala Bảo Nguyên Hotel",
-  "location": "Nhơn Trạch",
-  "address": "Huỳnh Văn Nghệ, Hiệp Phước, Nhơn Trạch, Đồng Nai, Việt Nam",
-  "tagline": "Nơi nghỉ ngơi, nơi tận hưởng.",
-  "description": "Chào mừng bạn đến với SALA BẢO NGUYÊN HOTEL – không gian lưu trú hiện đại, tiện nghi và thoải mái. Chúng tôi mang đến trải nghiệm nghỉ ngơi trọn vẹn với dịch vụ tận tâm, không gian sạch sẽ và sự chăm sóc chu đáo trong từng khoảnh khắc.\n                                                                                                                                                                                                                                                          \n\n\nHotline : (+84) 079 883 6968\n",
+  "name": {
+    "vi": "Sala Bảo Nguyên Hotel",
+    "zh": "SALA BẢO NGUYÊN 酒店",
+    "ko": "SALA BẢO NGUYÊN 호텔"
+  },
+  "location": {
+    "vi": "Nhơn Trạch",
+    "zh": "宁渣",
+    "ko": "논트랙"
+  },
+  "address": {
+    "vi": "Huỳnh Văn Nghệ, Hiệp Phước, Nhơn Trạch, Đồng Nai, Việt Nam",
+    "zh": "越南 Đồng奈 省 Nhơn Trạch 县 Hiệp Phước Huỳnh Văn Nghệ",
+    "ko": "베트남 동나이성 논트랙시 Hiệp Phước Huỳnh Văn Nghệ"
+  },
+  "tagline": {
+    "vi": "Nơi nghỉ ngơi, nơi tận hưởng.",
+    "zh": "休息之地，尽享每一刻。",
+    "ko": "휴식의 공간, 여유를 만나는 곳."
+  },
+  "description": {
+    "vi": "Chào mừng bạn đến với SALA BẢO NGUYÊN HOTEL – không gian lưu trú hiện đại, tiện nghi và thoải mái. Chúng tôi mang đến trải nghiệm nghỉ ngơi trọn vẹn với dịch vụ tận tâm, không gian sạch sẽ và sự chăm sóc chu đáo trong từng khoảnh khắc.\nHotline : (+84) 079 883 6968",
+    "zh": "欢迎来到 SALA BẢO NGUYÊN HOTEL——现代、舒适、便捷的住宿空间。我们为您带来完整的休息体验，以细致周到的服务、干净整洁的环境和贴心的关怀，让每一刻都充满舒适。\n热线：(+84) 079 883 6968",
+    "ko": "SALA BẢO NGUYÊN HOTEL에 오신 것을 환영합니다. 현대적이고 편안한 숙박 공간을 제공합니다. 세심한 서비스, 청결한 환경, 그리고 각 순간을 아끼는 마음으로 완벽한 휴식 경험을 선사합니다.\n문의 : (+84) 079 883 6968"
+  },
   "heroImage": "/uploads/1787966715886-lpgd8ko9zm.png",
   "contact": "baonguyenhotel@gmail.com",
   "phone": "+84 236 389 6868",
-  "facebook": "https://www.facebook.com/",
+  "facebook": "https://www.facebook.com/profile.php?id=61594115332634",
+  "video": "/uploads/1787973803505-15b15az597b.mp4",
   "webchatImage": "/uploads/1787965691010-wl5ryyck1z.jpg",
-  "amenities": [
-    "Bữa sáng địa phương",
-    "Wi-Fi tốc độ cao"
-  ],
+  "amenities": {
+    "vi": [
+      "Bữa sáng địa phương",
+      "Wi-Fi tốc độ cao"
+    ],
+    "zh": [
+      "地道早餐",
+      "高速 Wi‑Fi"
+    ],
+    "ko": [
+      "현지식 조식",
+      "고속 와이파이"
+    ]
+  },
   "rooms": [
     {
-      "name": "Phòng vip",
-      "price": "500",
-      "size": "200m2",
-      "image": "/uploads/1787909735498-w60xqt0xsla.jpg",
-      "description": "Có cửa sổ",
-      "id": "room-1787909754200"
-    },
-    {
-      "name": "Phòng tiêu chuẩn",
       "price": "380.000đ",
       "size": "20m2",
-      "image": "/uploads/1787959932698-8ixypprmbgc.jpg",
-      "description": "Phòng 1 gường k có cửa sổ",
-      "id": "room-1787959948916"
+      "image": "/uploads/1787974955544-0hu3l9ai3abc.png",
+      "name": {
+        "vi": "Phòng tiêu chuẩn",
+        "zh": "SALA BẢO NGUYÊN 酒店",
+        "ko": "SALA BẢO NGUYÊN 호텔"
+      },
+      "description": {
+        "vi": "phòng bao gồm 1 giường lớn, máy lạnh, tivi, tủ lạnh, máy nóng lạnh, miễn phí hai chai nước suối và dọn phòng đều đặn mỗi ngày, miễn phí WIFI, nệm lò xo.",
+        "zh": "客房配有大床、空调、电视、冰箱、热水器、弹簧床垫和免费Wi-Fi，并提供两瓶免费饮用水及每日客房清洁服务。",
+        "ko": "객실에는 대형 침대, 에어컨, TV, 냉장고, 온수기, 스프링 매트리스 및 무료 Wi-Fi가 갖춰져 있으며, 무료 생수 2병과 매일 객실 정비 서비스도 제공됩니다."
+      },
+      "id": "room-1787975208596"
+    },
+    {
+      "price": "500.000đ",
+      "size": "25m2",
+      "image": "/uploads/1787975911764-a5089r3tkqt.png",
+      "name": {
+        "vi": "Phòng wip (Wonderfull Room )",
+        "zh": "WIP 空间（精彩空间）",
+        "ko": "WIP 룸 (원더풀 룸)"
+      },
+      "description": {
+        "vi": "Diện tích phòng: 25 m2, phòng bao gồm 1 giường lớn, máy lạnh, tivi, tủ lạnh, máy nóng lạnh, miễn phí hai chai nước suối và dọn phòng đều đặn mỗi ngày, miễn phí WIFI, nệm lò xo.",
+        "zh": "客房面积：25平方米；配备大床、空调、电视、冰箱和热水器。设施与服务包括免费瓶装水（两瓶）、每日客房清洁、免费Wi-Fi及弹簧床垫。",
+        "ko": "객실 면적은 25m²이며, 대형 침대, 에어컨, TV, 냉장고, 온수기 등의 시설을 갖추고 있습니다. 편의 사항으로는 무료 생수(2병), 매일 제공되는 객실 정비 서비스, 무료 Wi-Fi, 스프링 매트리스가 포함됩니다."
+      },
+      "id": "room-1787976018142"
+    },
+    {
+      "price": "750.000đ",
+      "size": "35m2",
+      "image": "/uploads/1787976065138-9bq8yadzbkb.png",
+      "name": {
+        "vi": "Phòng đôi (Family's Room)",
+        "zh": "双人间（家庭房）",
+        "ko": "더블룸 (패밀리룸)"
+      },
+      "description": {
+        "vi": "Diện tích phòng: 35 m2, phòng bao gồm 2 giường lớn, máy lạnh, tivi, tủ lạnh, máy nóng lạnh, miễn phí hai chai nước suối và dọn phòng đều đặn mỗi ngày, miễn phí WIFI, nệm lò xo.",
+        "zh": "客房面积 35 平方米，配备两张大床、空调、电视、冰箱、热水器及弹簧床垫。免费提供的设施与服务包括两瓶饮用水、每日客房清洁及 Wi-Fi。",
+        "ko": "객실 면적은 35m²이며, 대형 침대 2개, 에어컨, TV, 냉장고, 온수기, 스프링 매트리스가 구비되어 있습니다. 무료 편의 서비스 및 물품으로는 생수 2병, 매일 제공되는 객실 정비 서비스, Wi-Fi가 포함됩니다."
+      },
+      "id": "room-1787976127836"
     }
   ]
 }

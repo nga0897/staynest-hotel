@@ -12,8 +12,25 @@
 <body>
   <header class="site-header">
     <a class="brand" href="/"><span class="brand-mark">✦</span><span id="brandName">MORNING DEW</span></a>
-    <nav><a href="#stay">Phòng nghỉ</a><a href="#story">Về chúng tôi</a><a href="#contact">Liên hệ</a></nav>
-    <a class="header-action" href="#stay">Đặt phòng <span>↗</span></a>
+    <nav>
+      <a href="#stay" data-i18n="navStay">Phòng nghỉ</a>
+      <a href="#story" data-i18n="navStory">Về chúng tôi</a>
+      <a href="#contact" data-i18n="navContact">Liên hệ</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher" aria-label="Choose language">
+        <button type="button" class="lang-btn active" data-lang="vi" data-country="Vietnamese" aria-label="Vietnamese">
+          <span class="flag" aria-hidden="true">🇻🇳</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang="zh" data-country="Chinese" aria-label="Chinese">
+          <span class="flag" aria-hidden="true">🇨🇳</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang="ko" data-country="Korean" aria-label="Korean">
+          <span class="flag" aria-hidden="true">🇰🇷</span>
+        </button>
+      </div>
+      <a class="header-action" href="#stay" data-i18n="bookNow">Đặt phòng <span>↗</span></a>
+    </div>
   </header>
 
   <main>
@@ -21,35 +38,46 @@
       <div class="hero-image" id="heroImage"></div>
       <div class="hero-overlay"></div>
       <div class="hero-copy">
-        <p class="eyebrow" id="location">DA NANG, VIET NAM</p>
-        <h1 id="tagline">Wake up somewhere beautiful.</h1>
+        <p class="eyebrow" id="location">NHƠN TRẠCH, VIET NAM</p>
+        <h1 id="tagline">Đi xa vẫn thấy thân quen.</h1>
         <p class="hero-description" id="description"></p>
-        <a class="button button-light" href="#stay">Khám phá kỳ nghỉ <span>↓</span></a>
+        <a class="button button-light" id="heroExplore" href="#stay">Khám phá kỳ nghỉ <span>↓</span></a>
       </div>
-      <div class="hero-note">EST. 2024 <span></span> BY THE SEA</div>
     </section>
 
     <section class="intro-band">
-      <p class="eyebrow">SALA BẢO NGUYÊN</p>
-      <h2>Ở lại lâu hơn<br><em>một chút.</em></h2>
-      <div class="intro-meta"><span>01</span><p>Một nơi để thở chậm, ăn ngon và nghe tiếng biển mỗi sớm mai.</p></div>
+      <div class="intro-left">
+        <p class="eyebrow" id="introEyebrow">SALA BẢO NGUYÊN</p>
+        <h2><span id="introTitleLine1">Ở lại lâu hơn</span><span id="introTitleLine2"><em>một chút.</em></span></h2>
+      </div>
+      <div class="intro-meta-group">
+        <div class="intro-meta"><span id="introFeature1Label">🌿 Không gian nghỉ dưỡng</span><p id="introFeature1Text">Thư giãn trong không gian hiện đại, sạch sẽ và tiện nghi. SALA BẢO NGUYÊN mang đến cảm giác thoải mái để bạn tận hưởng trọn vẹn thời gian nghỉ ngơi.</p></div>
+        <div class="intro-meta"><span id="introFeature2Label">⭐ Trải nghiệm khác biệt</span><p id="introFeature2Text">Không chỉ là nơi lưu trú, mà là nơi tạo nên những trải nghiệm đáng nhớ. Tận hưởng dịch vụ chu đáo và sự thoải mái trong từng khoảnh khắc.</p></div>
+        <div class="intro-meta"><span id="introFeature3Label">❤️ Điểm dừng chân lý tưởng</span><p id="introFeature3Text">Một điểm dừng chân hoàn hảo cho mọi hành trình. Dù đi công tác hay nghỉ dưỡng, SALA BẢO NGUYÊN luôn sẵn sàng chào đón bạn.</p></div>
+      </div>
     </section>
 
     <section class="rooms-section" id="stay">
-      <div class="section-heading"><div><p class="eyebrow">YOUR PRIVATE SPACE</p><h2>Chọn căn phòng<br><em>của bạn.</em></h2></div><span class="section-count">02 — ROOMS</span></div>
+      <div class="section-heading"><div><p class="eyebrow">YOUR PRIVATE SPACE</p><h2><span id="roomTitle">Chọn căn phòng</span> <em id="roomTitleEm">của bạn.</em></h2></div><span class="section-count">02 — ROOMS</span></div>
       <div class="room-grid" id="roomGrid"></div>
     </section>
 
-    <section class="amenities-section">
-      <div><p class="eyebrow">Mọi thứ bạn cần</p><h2>Những điều nhỏ<br>làm nên ngày <em>đẹp.</em></h2></div>
-      <div class="amenity-list" id="amenities"></div>
+    <section class="video-section" aria-label="Video giới thiệu khách sạn">
+      <div class="video-copy">
+        <p class="eyebrow" id="videoEyebrow">VIDEO</p>
+        <h2><span id="videoHeading1">Khám phá</span><br><em id="videoHeading2">khách sạn của chúng tôi.</em></h2>
+        <p class="video-description" id="videoDescription">Một nơi nghỉ dưỡng thanh bình, tối giản và đậm chất sang trọng cho những khoảnh khắc đáng nhớ.</p>
+      </div>
+      <div class="video-frame">
+        <video id="hotelVideo" controls playsinline preload="metadata"></video>
+      </div>
     </section>
 
     <section class="contact-section" id="contact">
       <div class="contact-main">
         <div class="contact-copy">
-          <p class="eyebrow">COME FIND US</p>
-          <h2>Hẹn gặp bạn<br>ở <em>Bảo Nguyên Hotel.</em></h2>
+          <p class="eyebrow" id="contactEyebrow">COME FIND US</p>
+          <h2><span id="contactHeading1">Hẹn gặp bạn</span><br><span id="contactHeading2">ở Bảo Nguyên Hotel.</span></h2>
           <div class="contact-details">
             <a id="email" href="mailto:baonguyenhotel@gmail.com">baonguyenhotel@gmail.com</a>
             <a id="phone" href="tel:+842363896868">+84 236 389 6868</a>
@@ -58,12 +86,17 @@
 
         <div class="social-panel">
           <div class="social-card">
-            <p class="eyebrow">FANPAGE</p>
-            <h3>Facebook</h3>
-            <a id="facebookLink" href="https://facebook.com" target="_blank" rel="noreferrer">facebook.com</a>
+            <p class="eyebrow" id="fanpage">FANPAGE</p>
+            <a id="facebookLink" class="facebook-link" href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Open Facebook page">
+              <span class="facebook-preview">
+                <span class="facebook-cover"></span>
+                <span class="facebook-page-name">Sala Bảo Nguyên</span>
+                <span class="facebook-page-tag">Khách sạn</span>
+              </span>
+            </a>
           </div>
           <div class="social-card">
-            <p class="eyebrow">WECHAT</p>
+            <p class="eyebrow" id="wechat">WECHAT</p>
             <img id="webchatImage" alt="Ảnh webchat khách sạn" src="">
           </div>
         </div>
@@ -72,17 +105,17 @@
       <div class="map-wrapper">
         <div class="map-panel">
           <div class="map-heading">
-            <p class="eyebrow">TÌM ĐƯỜNG</p>
-            <h2>Ghé thăm<br><em>chúng tôi.</em></h2>
+            <p class="eyebrow" id="mapEyebrow">TÌM ĐƯỜNG</p>
+            <h2><span id="mapHeading1">Ghé thăm</span><br><em id="mapHeading2">chúng tôi.</em></h2>
             <p id="address">Huỳnh Văn Nghệ, Hiệp Phước, Nhơn Trạch, Đồng Nai, Việt Nam</p>
-            <a class="map-link" id="mapLink" target="_blank" rel="noreferrer">Mở chỉ đường ↗</a>
+            <a class="map-link" id="mapLink" target="_blank" rel="noreferrer"><span id="mapLinkText">Mở chỉ đường</span> ↗</a>
           </div>
           <iframe id="hotelMap" title="Bản đồ vị trí khách sạn" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
   </main>
-  <footer><span>© 2026 Bảo Nguyên Hotel</span><span>Trải nghiệm lưu trú khác biệt.</span><a href="/admin">Admin ↗</a></footer>
+  <footer><span id="footerMain">© 2026 Bảo Nguyên Hotel</span><span id="footerSub">Trải nghiệm lưu trú khác biệt.</span><a id="adminLink" href="/admin">Admin ↗</a></footer>
   <script src="/app.js"></script>
 </body>
 </html>

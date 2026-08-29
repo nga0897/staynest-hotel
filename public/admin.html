@@ -26,10 +26,22 @@
       <section class="admin-panel">
         <div class="panel-label">01 / THÔNG TIN CHUNG</div>
         <div class="form-grid">
-          <label>Tên khách sạn<input name="name" required></label>
-          <label>Địa điểm<input name="location" required></label>
-          <label class="wide">Tagline<input name="tagline" required></label>
-          <label class="wide">Mô tả<textarea name="description" rows="4" required></textarea></label>
+          <label>Tiếng Việt - Tên khách sạn<input name="name_vi" required></label>
+          <label>Tiếng Trung - Tên khách sạn<input name="name_zh" required></label>
+          <label>Tiếng Hàn - Tên khách sạn<input name="name_ko" required></label>
+
+          <label>Tiếng Việt - Địa điểm<input name="location_vi" required></label>
+          <label>Tiếng Trung - Địa điểm<input name="location_zh" required></label>
+          <label>Tiếng Hàn - Địa điểm<input name="location_ko" required></label>
+
+          <label class="wide">Tiếng Việt - Tagline<input name="tagline_vi" required></label>
+          <label class="wide">Tiếng Trung - Tagline<input name="tagline_zh" required></label>
+          <label class="wide">Tiếng Hàn - Tagline<input name="tagline_ko" required></label>
+
+          <label class="wide">Tiếng Việt - Mô tả<textarea name="description_vi" rows="4" required></textarea></label>
+          <label class="wide">Tiếng Trung - Mô tả<textarea name="description_zh" rows="4" required></textarea></label>
+          <label class="wide">Tiếng Hàn - Mô tả<textarea name="description_ko" rows="4" required></textarea></label>
+
           <label class="wide">Ảnh hero</label>
           <div class="image-upload wide">
             <input name="heroImage" type="text" placeholder="Dán URL ảnh hoặc chọn file bên dưới" required>
@@ -41,9 +53,17 @@
 
       <section class="admin-panel">
         <div class="panel-label">02 / TIỆN NGHI</div>
-        <label>Danh sách tiện nghi <small>(mỗi tiện nghi một dòng)</small>
-          <textarea name="amenities" rows="5"></textarea>
-        </label>
+        <div class="form-grid">
+          <label class="wide">Tiếng Việt - Danh sách tiện nghi <small>(mỗi tiện nghi một dòng)</small>
+            <textarea name="amenities_vi" rows="5"></textarea>
+          </label>
+          <label class="wide">Tiếng Trung - Danh sách tiện nghi <small>(mỗi tiện nghi một dòng)</small>
+            <textarea name="amenities_zh" rows="5"></textarea>
+          </label>
+          <label class="wide">Tiếng Hàn - Danh sách tiện nghi <small>(mỗi tiện nghi một dòng)</small>
+            <textarea name="amenities_ko" rows="5"></textarea>
+          </label>
+        </div>
       </section>
 
       <section class="admin-panel">
@@ -52,6 +72,12 @@
           <label>Email<input name="contact" type="email" required></label>
           <label>Số điện thoại<input name="phone" required></label>
           <label class="wide">Fanpage Facebook<input name="facebook" type="url" placeholder="https://facebook.com/"></label>
+          <label class="wide">Video giới thiệu khách sạn</label>
+          <div class="image-upload wide">
+            <input name="video" type="text" placeholder="Dán URL video hoặc chọn file dưới đây">
+            <input id="videoFile" type="file" accept="video/*">
+            <video id="videoPreview" class="upload-preview hidden" controls playsinline></video>
+          </div>
           <label class="wide">Ảnh Webchat</label>
           <div class="image-upload wide">
             <input name="webchatImage" type="text" placeholder="Dán URL ảnh hoặc chọn file dưới đây">
@@ -74,7 +100,9 @@
       </div>
 
       <form id="roomForm" class="room-form hidden">
-        <input name="name" placeholder="Tên phòng" required>
+        <input name="name_vi" placeholder="Tên phòng (Tiếng Việt)" required>
+        <input name="name_zh" placeholder="Tên phòng (Tiếng Trung)" required>
+        <input name="name_ko" placeholder="Tên phòng (Tiếng Hàn)" required>
         <input name="price" placeholder="Giá / đêm" required>
         <input name="size" placeholder="Diện tích" required>
         <div class="image-upload">
@@ -82,7 +110,9 @@
           <input id="roomImageFile" type="file" accept="image/*">
           <img id="roomPreview" class="upload-preview hidden" alt="Xem trước ảnh phòng">
         </div>
-        <textarea name="description" placeholder="Mô tả phòng" required></textarea>
+        <textarea name="description_vi" placeholder="Mô tả phòng (Tiếng Việt)" required></textarea>
+        <textarea name="description_zh" placeholder="Mô tả phòng (Tiếng Trung)" required></textarea>
+        <textarea name="description_ko" placeholder="Mô tả phòng (Tiếng Hàn)" required></textarea>
         <button class="save-button" type="submit">Thêm phòng <span>↗</span></button>
       </form>
 
