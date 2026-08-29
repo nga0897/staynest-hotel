@@ -3,6 +3,7 @@ const roomForm = document.getElementById("roomForm");
 const saveStatus = document.getElementById("saveStatus");
 const languageKeys = ["vi", "zh", "ko"];
 let hotelData;
+let editingRoomId = null;
 
 function getTextByLang(value, lang) {
   if (!value) return "";
@@ -133,6 +134,36 @@ function fillForm() {
   }
 }
 
+function resetRoomForm() {
+  roomForm.reset();
+  editingRoomId = null;
+  document.getElementById("toggleRoomForm").textContent = "+ Thêm phòng";
+  document.querySelector("#roomForm .save-button").textContent = "Thêm phòng ";
+  const saveLabel = document.querySelector("#roomForm .save-button");
+  if (saveLabel) saveLabel.innerHTML = "Thêm phòng <span>↗</span>";
+}
+
+function populateRoomForm(room) {
+  roomForm.elements.name_vi.value = getTextByLang(room.name, "vi") || "";
+  roomForm.elements.name_zh.value = getTextByLang(room.name, "zh") || "";
+  roomForm.elements.name_ko.value = getTextByLang(room.name, "ko") || "";
+  roomForm.elements.price.value = room.price || "";
+  roomForm.elements.size.value = room.size || "";
+  roomForm.elements.image.value = room.image || "";
+  roomForm.elements.description_vi.value =
+    getTextByLang(room.description, "vi") || "";
+  roomForm.elements.description_zh.value =
+    getTextByLang(room.description, "zh") || "";
+  roomForm.elements.description_ko.value =
+    getTextByLang(room.description, "ko") || "";
+
+  if (room.image) {
+    const roomPreview = document.getElementById("roomPreview");
+    roomPreview.src = room.image;
+    roomPreview.classList.remove("hidden");
+  }
+}
+
 function renderRooms() {
   document.getElementById("adminRooms").innerHTML = (hotelData.rooms || [])
     .map((room) => {
@@ -145,9 +176,24 @@ function renderRooms() {
         roomPrice.includes("$")
           ? roomPrice
           : `${roomPrice}đ`;
-      return `<article class="admin-room"><img src="${room.image}" alt=""><div><h3>${roomName}</h3><p>${roomSize} · ${roomPriceText} / đêm</p></div><button class="delete-room" data-id="${room.id}" title="Xóa phòng">×</button></article>`;
+      return `<article class="admin-room"><img src="${room.image}" alt=""><div><h3>${roomName}</h3><p>${roomSize} · ${roomPriceText} / đêm</p></div><div class="admin-room-actions"><button class="edit-room" data-id="${room.id}" title="Sửa phòng">Sửa</button><button class="delete-room" data-id="${room.id}" title="Xóa phòng">×</button></div></article>`;
     })
     .join("");
+
+  document.querySelectorAll(".edit-room").forEach((button) =>
+    button.addEventListener("click", () => {
+      const room = hotelData.rooms.find(
+        (item) => item.id === button.dataset.id,
+      );
+      if (!room) return;
+      editingRoomId = room.id;
+      populateRoomForm(room);
+      document.getElementById("toggleRoomForm").textContent = "× Hủy";
+      const saveButton = document.querySelector("#roomForm .save-button");
+      if (saveButton) saveButton.innerHTML = "Cập nhật phòng <span>↗</span>";
+      roomForm.classList.remove("hidden");
+    }),
+  );
 
   document.querySelectorAll(".delete-room").forEach((button) =>
     button.addEventListener("click", async () => {
@@ -157,6 +203,7 @@ function renderRooms() {
         (room) => room.id !== button.dataset.id,
       );
       renderRooms();
+      if (editingRoomId === button.dataset.id) resetRoomForm();
     }),
   );
 }
@@ -198,9 +245,15 @@ hotelForm.addEventListener("submit", async (event) => {
   fillForm();
 });
 
-document
-  .getElementById("toggleRoomForm")
-  .addEventListener("click", () => roomForm.classList.toggle("hidden"));
+document.getElementById("toggleRoomForm").addEventListener("click", () => {
+  if (roomForm.classList.contains("hidden")) {
+    roomForm.classList.remove("hidden");
+    document.getElementById("toggleRoomForm").textContent = "× Hủy";
+  } else {
+    resetRoomForm();
+    roomForm.classList.add("hidden");
+  }
+});
 
 roomForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -219,18 +272,33 @@ roomForm.addEventListener("submit", async (event) => {
     return;
   }
 
-  const response = await fetch("/api/rooms", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
+  if (editingRoomId) {
+    const response = await fetch(`/api/rooms/${editingRoomId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
 
-  const addedRoom = await response.json();
-  hotelData.rooms.push(addedRoom);
-  roomForm.reset();
+    const updatedRoom = await response.json();
+    hotelData.rooms = hotelData.rooms.map((room) =>
+      room.id === editingRoomId ? { ...room, ...updatedRoom } : room,
+    );
+    saveStatus.textContent = "Đã cập nhật phòng";
+  } else {
+    const response = await fetch("/api/rooms", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+
+    const addedRoom = await response.json();
+    hotelData.rooms.push(addedRoom);
+    saveStatus.textContent = "Đã thêm phòng";
+  }
+
+  resetRoomForm();
   roomForm.classList.add("hidden");
   renderRooms();
-  saveStatus.textContent = "Đã thêm phòng";
 });
 
 connectImagePicker("heroImageFile", "heroImage", "heroPreview");

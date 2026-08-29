@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: staynest-hotel
+    runtime: node
+    startCommand: npm start
+    buildCommand: npm install
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000

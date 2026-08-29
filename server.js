@@ -33,11 +33,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/api/upload", mediaUpload.single("image"), (req, res) => {
   if (!req.file)
-    return res
-      .status(400)
-      .json({
-        error: "Vui lòng chọn một file ảnh hoặc video hợp lệ dưới 20 MB",
-      });
+    return res.status(400).json({
+      error: "Vui lòng chọn một file ảnh hoặc video hợp lệ dưới 20 MB",
+    });
   res.status(201).json({ url: `/uploads/${req.file.filename}` });
 });
 
@@ -64,6 +62,22 @@ app.post("/api/rooms", (req, res) => {
   hotel.rooms.push(room);
   writeHotel(hotel);
   res.status(201).json(room);
+});
+
+app.put("/api/rooms/:id", (req, res) => {
+  const hotel = readHotel();
+  const index = hotel.rooms.findIndex((room) => room.id === req.params.id);
+  if (index === -1) {
+    return res.status(404).json({ error: "Không tìm thấy phòng" });
+  }
+
+  hotel.rooms[index] = {
+    ...hotel.rooms[index],
+    ...req.body,
+    id: req.params.id,
+  };
+  writeHotel(hotel);
+  res.json(hotel.rooms[index]);
 });
 
 app.delete("/api/rooms/:id", (req, res) => {
