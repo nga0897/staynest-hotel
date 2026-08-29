@@ -80,7 +80,7 @@
     {
       "price": "750.000đ",
       "size": "35m2",
-      "image": "/uploads/1787976065138-9bq8yadzbkb.png",
+      "image": "/uploads/1787980293509-immbdopozj.jpg",
       "name": {
         "vi": "Phòng đôi (Family's Room)",
         "zh": "双人间（家庭房）",
@@ -92,6 +92,22 @@
         "ko": "객실 면적은 35m²이며, 대형 침대 2개, 에어컨, TV, 냉장고, 온수기, 스프링 매트리스가 구비되어 있습니다. 무료 편의 서비스 및 물품으로는 생수 2병, 매일 제공되는 객실 정비 서비스, Wi-Fi가 포함됩니다."
       },
       "id": "room-1787976127836"
+    },
+    {
+      "price": "750.000đ",
+      "size": "35m2",
+      "image": "/uploads/1787980243318-p6tzsiwtcm.png",
+      "name": {
+        "vi": "Phòng đôi (Family's Room)",
+        "zh": "双人间（家庭房）",
+        "ko": "더블룸 (패밀리룸)"
+      },
+      "description": {
+        "vi": "Diện tích phòng: 35 m2, phòng bao gồm 2 giường lớn, máy lạnh, tivi, tủ lạnh, máy nóng lạnh, miễn phí hai chai nước suối và dọn phòng đều đặn mỗi ngày, miễn phí WIFI, nệm lò xo.",
+        "zh": "客房面积 35 平方米，配备两张大床、空调、电视、冰箱、热水器及弹簧床垫。免费提供的设施与服务包括两瓶饮用水、每日客房清洁及 Wi-Fi。",
+        "ko": "객실 면적은 35m²이며, 대형 침대 2개, 에어컨, TV, 냉장고, 온수기, 스프링 매트리스가 구비되어 있습니다. 무료 편의 서비스 및 물품으로는 생수 2병, 매일 제공되는 객실 정비 서비스, Wi-Fi가 포함됩니다."
+      },
+      "id": "room-1787980259072"
     }
   ]
 }
