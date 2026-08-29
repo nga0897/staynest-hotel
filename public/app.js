@@ -121,6 +121,16 @@ const translations = {
 let currentLang = "vi";
 let hotelData = null;
 
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[char]);
+}
+
 function getLocalizedValue(value, lang, fallback = "") {
   if (value && typeof value === "object" && !Array.isArray(value)) {
     if (value[lang]) return value[lang];
@@ -172,8 +182,8 @@ function renderHotelData(hotel) {
   facebookLink.setAttribute("aria-label", `Open Facebook page: ${hotelShortName}`);
   facebookLink.innerHTML = `
     <span class="facebook-preview">
-      <span class="facebook-cover" style="background-image:url('${coverImage}')"></span>
-      <span class="facebook-page-name">${hotelShortName}</span>
+      <span class="facebook-cover" style="background-image:url('${escapeHtml(coverImage)}')"></span>
+      <span class="facebook-page-name">${escapeHtml(hotelShortName)}</span>
       <span class="facebook-page-tag">Khách sạn</span>
     </span>
   `;
@@ -209,7 +219,7 @@ function renderHotelData(hotel) {
     amenitiesRoot.innerHTML = amenities
       .map(
         (item, index) =>
-          `<div class="amenity"><span>0${index + 1}</span><strong>${item}</strong><span>↗</span></div>`,
+          `<div class="amenity"><span>0${index + 1}</span><strong>${escapeHtml(item)}</strong><span>↗</span></div>`,
       )
       .join("");
   }
@@ -227,8 +237,8 @@ function renderHotelData(hotel) {
 
       return `
     <article class="room-card">
-      <div class="room-image" style="background-image:url('${roomImage}')"><span class="room-number">0${index + 1}</span></div>
-      <div class="room-content"><div><h3>${roomName}</h3><p>${roomDescription}</p></div><div class="room-foot"><span>${roomSize} · ${roomPrice}</span><a href="#contact" aria-label="${ariaLabel}">↗</a></div></div>
+      <div class="room-image" style="background-image:url('${escapeHtml(roomImage)}')"><span class="room-number">0${index + 1}</span></div>
+      <div class="room-content"><div><h3>${escapeHtml(roomName)}</h3><p>${escapeHtml(roomDescription)}</p></div><div class="room-foot"><span>${escapeHtml(roomSize)} · ${escapeHtml(roomPrice)}</span><a href="#contact" aria-label="${escapeHtml(ariaLabel)}">↗</a></div></div>
     </article>`;
     })
     .join("");

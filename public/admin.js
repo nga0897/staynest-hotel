@@ -5,6 +5,16 @@ const languageKeys = ["vi", "zh", "ko"];
 let hotelData;
 let editingRoomId = null;
 
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[char]);
+}
+
 function getTextByLang(value, lang) {
   if (!value) return "";
   if (typeof value === "object" && !Array.isArray(value)) {
@@ -176,7 +186,7 @@ function renderRooms() {
         roomPrice.includes("$")
           ? roomPrice
           : `${roomPrice}đ`;
-      return `<article class="admin-room"><img src="${room.image}" alt=""><div><h3>${roomName}</h3><p>${roomSize} · ${roomPriceText} / đêm</p></div><div class="admin-room-actions"><button class="edit-room" data-id="${room.id}" title="Sửa phòng">Sửa</button><button class="delete-room" data-id="${room.id}" title="Xóa phòng">×</button></div></article>`;
+      return `<article class="admin-room"><img src="${escapeHtml(room.image)}" alt=""><div><h3>${escapeHtml(roomName)}</h3><p>${escapeHtml(roomSize)} · ${escapeHtml(roomPriceText)} / đêm</p></div><div class="admin-room-actions"><button class="edit-room" data-id="${escapeHtml(room.id)}" title="Sửa phòng">Sửa</button><button class="delete-room" data-id="${escapeHtml(room.id)}" title="Xóa phòng">×</button></div></article>`;
     })
     .join("");
 
