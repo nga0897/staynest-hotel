@@ -53,7 +53,10 @@ describe("StayNest server — authorized admin flows", () => {
 
     // Assert
     assert.equal(res.status, 200);
-    assert.ok(body.rooms && Array.isArray(body.rooms), "response should contain rooms array");
+    assert.ok(
+      body.rooms && Array.isArray(body.rooms),
+      "response should contain rooms array",
+    );
   });
 
   test("PUT /api/hotel with valid auth updates fields and preserves rooms", async () => {
@@ -72,7 +75,11 @@ describe("StayNest server — authorized admin flows", () => {
     // Assert
     assert.equal(res.status, 200);
     assert.equal(body.tagline, newTagline);
-    assert.equal(body.rooms.length, before.rooms.length, "rooms must be preserved by PUT /api/hotel");
+    assert.equal(
+      body.rooms.length,
+      before.rooms.length,
+      "rooms must be preserved by PUT /api/hotel",
+    );
   });
 
   test("Room CRUD lifecycle with valid auth: create -> update -> delete", async () => {
@@ -80,7 +87,11 @@ describe("StayNest server — authorized admin flows", () => {
     const createRes = await fetch(`${server.baseUrl}/api/rooms`, {
       method: "POST",
       headers: { ...AUTH_HEADER, "Content-Type": "application/json" },
-      body: JSON.stringify({ name: { vi: "Phòng test" }, price: "100.000đ", size: "10m2" }),
+      body: JSON.stringify({
+        name: { vi: "Phòng test" },
+        price: "100.000đ",
+        size: "10m2",
+      }),
     });
     const created = await createRes.json();
 
@@ -112,7 +123,9 @@ describe("StayNest server — authorized admin flows", () => {
     assert.equal(deleteRes.status, 200);
     assert.equal(deleteBody.success, true);
 
-    const afterDelete = await (await fetch(`${server.baseUrl}/api/hotel`)).json();
+    const afterDelete = await (
+      await fetch(`${server.baseUrl}/api/hotel`)
+    ).json();
     assert.ok(
       !afterDelete.rooms.some((r) => r.id === created.id),
       "deleted room must no longer be present",
@@ -130,13 +143,27 @@ describe("StayNest server — authorized admin flows", () => {
 
   test("GET /admin with valid auth serves the admin panel HTML from views/", async () => {
     // Act
-    const res = await fetch(`${server.baseUrl}/admin`, { headers: AUTH_HEADER });
+    const res = await fetch(`${server.baseUrl}/admin`, {
+      headers: AUTH_HEADER,
+    });
     const body = await res.text();
 
     // Assert
     assert.equal(res.status, 200);
     assert.match(res.headers.get("content-type") || "", /text\/html/);
     assert.match(body, /<!doctype html>/i);
+  });
+
+  test("GET /admin exposes hotel address fields for the map editor", async () => {
+    const res = await fetch(`${server.baseUrl}/admin`, {
+      headers: AUTH_HEADER,
+    });
+    const body = await res.text();
+
+    assert.equal(res.status, 200);
+    assert.match(body, /name="address_vi"/i);
+    assert.match(body, /name="address_zh"/i);
+    assert.match(body, /name="address_ko"/i);
   });
 
   test("POST /api/upload with valid PNG magic bytes succeeds (201) and file is retrievable", async () => {
@@ -161,7 +188,11 @@ describe("StayNest server — authorized admin flows", () => {
     assert.match(body.url, /^\/uploads\/.+\.png$/);
 
     const fileRes = await fetch(`${server.baseUrl}${body.url}`);
-    assert.equal(fileRes.status, 200, "uploaded file must be servable back via static hosting");
+    assert.equal(
+      fileRes.status,
+      200,
+      "uploaded file must be servable back via static hosting",
+    );
   });
 
   test("POST /api/upload with correct extension/mimetype but wrong magic bytes is rejected (400) and file is deleted", async () => {
@@ -256,7 +287,9 @@ describe("StayNest server — admin auth enforcement", () => {
     test(`${route.method} ${route.path} without credentials returns 401`, async () => {
       const res = await fetch(`${server.baseUrl}${route.path}`, {
         method: route.method,
-        headers: route.jsonBody ? { "Content-Type": "application/json" } : undefined,
+        headers: route.jsonBody
+          ? { "Content-Type": "application/json" }
+          : undefined,
         body: route.jsonBody ? JSON.stringify(route.jsonBody) : undefined,
       });
       assert.equal(res.status, 401);

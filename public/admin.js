@@ -6,13 +6,17 @@ let hotelData;
 let editingRoomId = null;
 
 function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  })[char]);
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    (char) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[char],
+  );
 }
 
 function getTextByLang(value, lang) {
@@ -94,7 +98,7 @@ function connectImagePicker(fileId, urlName, previewId) {
 }
 
 function fillForm() {
-  ["name", "location", "tagline", "description"].forEach((key) => {
+  ["name", "location", "address", "tagline", "description"].forEach((key) => {
     languageKeys.forEach((lang) => {
       const field = hotelForm.elements[`${key}_${lang}`];
       if (field) field.value = getTextByLang(hotelData[key], lang);
@@ -239,6 +243,7 @@ hotelForm.addEventListener("submit", async (event) => {
     webchatImage: formData.get("webchatImage") || hotelData.webchatImage,
     name: buildMultilingualObject("name", formData),
     location: buildMultilingualObject("location", formData),
+    address: buildMultilingualObject("address", formData),
     tagline: buildMultilingualObject("tagline", formData),
     description: buildMultilingualObject("description", formData),
     amenities: buildAmenityObject(formData),
