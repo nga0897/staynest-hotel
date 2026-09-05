@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: staynest-hotel
+    name: salabaonguyen-hotel
     runtime: node
     startCommand: npm start
     buildCommand: npm install
