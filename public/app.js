@@ -9,11 +9,14 @@ const translations = {
     introTitleLine1: "Ở lại lâu hơn",
     introTitleLine2: "một chút.",
     introFeature1Label: "🌿 Không gian nghỉ dưỡng",
-    introFeature1Text: "Thư giãn trong không gian hiện đại, sạch sẽ và tiện nghi. SALA BẢO NGUYÊN mang đến cảm giác thoải mái để bạn tận hưởng trọn vẹn thời gian nghỉ ngơi.",
+    introFeature1Text:
+      "Thư giãn trong không gian hiện đại, sạch sẽ và tiện nghi. SALA BẢO NGUYÊN mang đến cảm giác thoải mái để bạn tận hưởng trọn vẹn thời gian nghỉ ngơi.",
     introFeature2Label: "⭐ Trải nghiệm khác biệt",
-    introFeature2Text: "Không chỉ là nơi lưu trú, mà là nơi tạo nên những trải nghiệm đáng nhớ. Tận hưởng dịch vụ chu đáo và sự thoải mái trong từng khoảnh khắc.",
+    introFeature2Text:
+      "Không chỉ là nơi lưu trú, mà là nơi tạo nên những trải nghiệm đáng nhớ. Tận hưởng dịch vụ chu đáo và sự thoải mái trong từng khoảnh khắc.",
     introFeature3Label: "❤️ Điểm dừng chân lý tưởng",
-    introFeature3Text: "Một điểm dừng chân hoàn hảo cho mọi hành trình. Dù đi công tác hay nghỉ dưỡng, SALA BẢO NGUYÊN luôn sẵn sàng chào đón bạn.",
+    introFeature3Text:
+      "Một điểm dừng chân hoàn hảo cho mọi hành trình. Dù đi công tác hay nghỉ dưỡng, SALA BẢO NGUYÊN luôn sẵn sàng chào đón bạn.",
     roomTitle: "Chọn căn phòng",
     roomTitleEm: "của bạn.",
     amenitiesIntro: "Mọi thứ bạn cần",
@@ -22,7 +25,8 @@ const translations = {
     videoEyebrow: "VIDEO",
     videoHeading1: "Khám phá",
     videoHeading2: "khách sạn của chúng tôi.",
-    videoDescription: "Một nơi nghỉ dưỡng thanh bình, tối giản và đậm chất sang trọng cho những khoảnh khắc đáng nhớ.",
+    videoDescription:
+      "Một nơi nghỉ dưỡng thanh bình, tối giản và đậm chất sang trọng cho những khoảnh khắc đáng nhớ.",
     contactEyebrow: "COME FIND US",
     contactHeading1: "Hẹn gặp bạn",
     contactHeading2: "ở Bảo Nguyên Hotel.",
@@ -36,7 +40,7 @@ const translations = {
     footerMain: "© 2026 Bảo Nguyên Hotel",
     footerSub: "Trải nghiệm lưu trú khác biệt.",
     adminText: "Admin",
-    emptyState: "Không thể tải dữ liệu khách sạn."
+    emptyState: "Không thể tải dữ liệu khách sạn.",
   },
   zh: {
     navStay: "客房",
@@ -48,11 +52,14 @@ const translations = {
     introTitleLine1: "多住一会儿",
     introTitleLine2: "一点点。",
     introFeature1Label: "🌿 休闲空间",
-    introFeature1Text: "在现代、清洁、舒适的空间中放松身心。SALA BẢO NGUYÊN 为您带来安稳惬意的度假体验。",
+    introFeature1Text:
+      "在现代、清洁、舒适的空间中放松身心。SALA BẢO NGUYÊN 为您带来安稳惬意的度假体验。",
     introFeature2Label: "⭐ 与众不同的体验",
-    introFeature2Text: "这里不仅是住宿，更是值得珍藏的难忘旅程。我们用细心周到的服务，让每一刻都更舒适自然。",
+    introFeature2Text:
+      "这里不仅是住宿，更是值得珍藏的难忘旅程。我们用细心周到的服务，让每一刻都更舒适自然。",
     introFeature3Label: "❤️ 理想停留地",
-    introFeature3Text: "无论商务出行还是休闲度假，SALA BẢO NGUYÊN 都会用温暖和贴心欢迎您的到来。",
+    introFeature3Text:
+      "无论商务出行还是休闲度假，SALA BẢO NGUYÊN 都会用温暖和贴心欢迎您的到来。",
     roomTitle: "选择你的房间",
     roomTitleEm: "吧。",
     amenitiesIntro: "一切都在这里",
@@ -61,7 +68,8 @@ const translations = {
     videoEyebrow: "视频",
     videoHeading1: "探索",
     videoHeading2: "我们的酒店。",
-    videoDescription: "一个安静、简约且充满高级感的度假空间，适合享受难忘的时光。",
+    videoDescription:
+      "一个安静、简约且充满高级感的度假空间，适合享受难忘的时光。",
     contactEyebrow: "联系我们",
     contactHeading1: "我们期待",
     contactHeading2: "在 Bảo Nguyên Hotel 与您相见。",
@@ -75,7 +83,7 @@ const translations = {
     footerMain: "© 2026 Bảo Nguyên Hotel",
     footerSub: "不一样的住宿体验。",
     adminText: "管理",
-    emptyState: "无法加载酒店数据。"
+    emptyState: "无法加载酒店数据。",
   },
   ko: {
     navStay: "객실",
@@ -87,11 +95,14 @@ const translations = {
     introTitleLine1: "좀 더 오래 머물러",
     introTitleLine2: "보세요.",
     introFeature1Label: "🌿 편안한 휴식 공간",
-    introFeature1Text: "현대적이고 깔끔하며 편안한 공간에서 편안하게 쉬어보세요. SALA BẢO NGUYÊN은 최상의 휴식 경험을 선사합니다.",
+    introFeature1Text:
+      "현대적이고 깔끔하며 편안한 공간에서 편안하게 쉬어보세요. SALA BẢO NGUYÊN은 최상의 휴식 경험을 선사합니다.",
     introFeature2Label: "⭐ 특별한 경험",
-    introFeature2Text: "단순한 숙소가 아니라 잊지 못할 추억을 만드는 곳입니다. 세심한 서비스와 편안한 분위기로 하루를 더 아름답게 만들어드립니다.",
+    introFeature2Text:
+      "단순한 숙소가 아니라 잊지 못할 추억을 만드는 곳입니다. 세심한 서비스와 편안한 분위기로 하루를 더 아름답게 만들어드립니다.",
     introFeature3Label: "❤️ 이상적인 휴식처",
-    introFeature3Text: "출장이든 여행이든 SALA BẢO NGUYÊN은 언제나 따뜻하게 맞이하고 편안한 시간을 선사합니다.",
+    introFeature3Text:
+      "출장이든 여행이든 SALA BẢO NGUYÊN은 언제나 따뜻하게 맞이하고 편안한 시간을 선사합니다.",
     roomTitle: "객실 선택",
     roomTitleEm: "하세요.",
     amenitiesIntro: "필요한 모든 것",
@@ -100,7 +111,8 @@ const translations = {
     videoEyebrow: "비디오",
     videoHeading1: "여행을",
     videoHeading2: "우리의 호텔에서 만나보세요.",
-    videoDescription: "평온하고 심플하며 고급스러운 분위기의 휴식 공간, 잊지 못할 순간을 선사합니다.",
+    videoDescription:
+      "평온하고 심플하며 고급스러운 분위기의 휴식 공간, 잊지 못할 순간을 선사합니다.",
     contactEyebrow: "찾아오세요",
     contactHeading1: "만나요",
     contactHeading2: "Bảo Nguyên Hotel에서.",
@@ -114,21 +126,25 @@ const translations = {
     footerMain: "© 2026 Bảo Nguyên Hotel",
     footerSub: "다른 숙박 경험을 느껴보세요.",
     adminText: "관리자",
-    emptyState: "호텔 데이터를 불러올 수 없습니다."
-  }
+    emptyState: "호텔 데이터를 불러올 수 없습니다.",
+  },
 };
 
 let currentLang = "vi";
 let hotelData = null;
 
 function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  })[char]);
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    (char) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[char],
+  );
 }
 
 function getLocalizedValue(value, lang, fallback = "") {
@@ -154,32 +170,76 @@ function getLocalizedList(value, lang, fallback = []) {
   return fallback;
 }
 
+function getMapEmbedUrl(mapUrl, address) {
+  const coordinates = mapUrl.match(/@(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/);
+  if (coordinates) {
+    return `https://www.google.com/maps?q=${coordinates[1]},${coordinates[2]}&z=15&output=embed`;
+  }
+
+  return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+}
+
 function renderHotelData(hotel) {
-  const titleText = getLocalizedValue(hotel.name, currentLang, hotel.name || "Hotel");
-  const locationText = getLocalizedValue(hotel.location, currentLang, hotel.location || "");
-  const taglineText = getLocalizedValue(hotel.tagline, currentLang, hotel.tagline || "");
-  const descriptionText = getLocalizedValue(hotel.description, currentLang, hotel.description || "");
-  const addressText = getLocalizedValue(hotel.address, currentLang, hotel.address || "");
+  const titleText = getLocalizedValue(
+    hotel.name,
+    currentLang,
+    hotel.name || "Hotel",
+  );
+  const locationText = getLocalizedValue(
+    hotel.location,
+    currentLang,
+    hotel.location || "",
+  );
+  const taglineText = getLocalizedValue(
+    hotel.tagline,
+    currentLang,
+    hotel.tagline || "",
+  );
+  const descriptionText = getLocalizedValue(
+    hotel.description,
+    currentLang,
+    hotel.description || "",
+  );
+  const addressText = getLocalizedValue(
+    hotel.address,
+    currentLang,
+    hotel.address || "",
+  );
 
   document.title = `${titleText} Hotel`;
   document.getElementById("brandName").textContent = titleText;
   document.getElementById("location").textContent = locationText.toUpperCase();
   document.getElementById("tagline").textContent = taglineText;
   document.getElementById("description").textContent = descriptionText;
-  document.getElementById("heroImage").style.backgroundImage = `url(${hotel.heroImage})`;
+  document.getElementById("heroImage").style.backgroundImage =
+    `url(${hotel.heroImage})`;
   document.getElementById("email").textContent = hotel.contact;
   document.getElementById("email").href = `mailto:${hotel.contact}`;
   document.getElementById("phone").textContent = hotel.phone;
-  document.getElementById("phone").href = `tel:${hotel.phone.replace(/\s/g, "")}`;
+  document.getElementById("phone").href =
+    `tel:${hotel.phone.replace(/\s/g, "")}`;
 
   const facebookUrl = hotel.facebook || "https://facebook.com";
   const facebookLink = document.getElementById("facebookLink");
-  const hotelName = getLocalizedValue(hotel.name, currentLang, "Sala Bảo Nguyên");
-  const hotelShortName = hotelName.replace(/\s*Hotel\s*$/i, "").trim() || "Sala Bảo Nguyên";
-  const coverImage = hotel.heroImage || "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80";
-  const avatarImage = hotel.webchatImage || hotel.heroImage || "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80";
+  const hotelName = getLocalizedValue(
+    hotel.name,
+    currentLang,
+    "Sala Bảo Nguyên",
+  );
+  const hotelShortName =
+    hotelName.replace(/\s*Hotel\s*$/i, "").trim() || "Sala Bảo Nguyên";
+  const coverImage =
+    hotel.heroImage ||
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80";
+  const avatarImage =
+    hotel.webchatImage ||
+    hotel.heroImage ||
+    "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80";
   facebookLink.href = facebookUrl;
-  facebookLink.setAttribute("aria-label", `Open Facebook page: ${hotelShortName}`);
+  facebookLink.setAttribute(
+    "aria-label",
+    `Open Facebook page: ${hotelShortName}`,
+  );
   facebookLink.innerHTML = `
     <span class="facebook-preview">
       <span class="facebook-cover" style="background-image:url('${escapeHtml(coverImage)}')"></span>
@@ -207,11 +267,17 @@ function renderHotelData(hotel) {
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%23f3f0e8'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23183d35' font-family='Arial' font-size='24'%3EWebchat%3C/text%3E%3C/svg%3E";
   }
 
-  const address = addressText || "Huỳnh Văn Nghệ, Hiệp Phước, Nhơn Trạch, Đồng Nai, Việt Nam";
+  const address = addressText;
   const encodedAddress = encodeURIComponent(address);
+  const googleMapUrl = hotel.googleMap || "";
   document.getElementById("address").textContent = address;
-  document.getElementById("hotelMap").src = `https://www.google.com/maps?q=${encodedAddress}&output=embed`;
-  document.getElementById("mapLink").href = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+  document.getElementById("hotelMap").src = getMapEmbedUrl(
+    googleMapUrl,
+    address,
+  );
+  document.getElementById("mapLink").href =
+    googleMapUrl ||
+    `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 
   const amenitiesRoot = document.getElementById("amenities");
   if (amenitiesRoot) {
@@ -227,21 +293,29 @@ function renderHotelData(hotel) {
   const roomGrid = document.getElementById("roomGrid");
   if (roomGrid) {
     roomGrid.innerHTML = (hotel.rooms || [])
-    .map((room, index) => {
-      const roomName = getLocalizedValue(room.name, currentLang, room.name || "Room");
-      const roomDescription = getLocalizedValue(room.description, currentLang, room.description || "");
-      const roomPrice = room.price || "";
-      const roomSize = room.size || "";
-      const roomImage = room.image || "";
-      const ariaLabel = `${translations[currentLang]?.bookNow || "Đặt phòng"} ${roomName}`;
+      .map((room, index) => {
+        const roomName = getLocalizedValue(
+          room.name,
+          currentLang,
+          room.name || "Room",
+        );
+        const roomDescription = getLocalizedValue(
+          room.description,
+          currentLang,
+          room.description || "",
+        );
+        const roomPrice = room.price || "";
+        const roomSize = room.size || "";
+        const roomImage = room.image || "";
+        const ariaLabel = `${translations[currentLang]?.bookNow || "Đặt phòng"} ${roomName}`;
 
-      return `
+        return `
     <article class="room-card">
       <div class="room-image" style="background-image:url('${escapeHtml(roomImage)}')"><span class="room-number">0${index + 1}</span></div>
       <div class="room-content"><div><h3>${escapeHtml(roomName)}</h3><p>${escapeHtml(roomDescription)}</p></div><div class="room-foot"><span>${escapeHtml(roomSize)} · ${escapeHtml(roomPrice)}</span><a href="#contact" aria-label="${escapeHtml(ariaLabel)}">↗</a></div></div>
     </article>`;
-    })
-    .join("");
+      })
+      .join("");
   }
 }
 
@@ -263,21 +337,25 @@ function setLanguage(lang) {
   const introTitleLine1 = document.getElementById("introTitleLine1");
   const introTitleLine2 = document.getElementById("introTitleLine2");
   if (introTitleLine1) introTitleLine1.textContent = dict.introTitleLine1;
-  if (introTitleLine2) introTitleLine2.innerHTML = `<em>${dict.introTitleLine2}</em>`;
+  if (introTitleLine2)
+    introTitleLine2.innerHTML = `<em>${dict.introTitleLine2}</em>`;
 
   const introFeature1Label = document.getElementById("introFeature1Label");
   const introFeature1Text = document.getElementById("introFeature1Text");
-  if (introFeature1Label) introFeature1Label.textContent = dict.introFeature1Label;
+  if (introFeature1Label)
+    introFeature1Label.textContent = dict.introFeature1Label;
   if (introFeature1Text) introFeature1Text.textContent = dict.introFeature1Text;
 
   const introFeature2Label = document.getElementById("introFeature2Label");
   const introFeature2Text = document.getElementById("introFeature2Text");
-  if (introFeature2Label) introFeature2Label.textContent = dict.introFeature2Label;
+  if (introFeature2Label)
+    introFeature2Label.textContent = dict.introFeature2Label;
   if (introFeature2Text) introFeature2Text.textContent = dict.introFeature2Text;
 
   const introFeature3Label = document.getElementById("introFeature3Label");
   const introFeature3Text = document.getElementById("introFeature3Text");
-  if (introFeature3Label) introFeature3Label.textContent = dict.introFeature3Label;
+  if (introFeature3Label)
+    introFeature3Label.textContent = dict.introFeature3Label;
   if (introFeature3Text) introFeature3Text.textContent = dict.introFeature3Text;
 
   const roomSectionTitle = document.getElementById("roomTitle");

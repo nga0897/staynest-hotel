@@ -119,6 +119,8 @@ function fillForm() {
     hotelForm.elements.phone.value = hotelData.phone || "";
   if (hotelForm.elements.facebook)
     hotelForm.elements.facebook.value = hotelData.facebook || "";
+  if (hotelForm.elements.googleMap)
+    hotelForm.elements.googleMap.value = hotelData.googleMap || "";
 
   if (hotelForm.elements.heroImage) {
     hotelForm.elements.heroImage.value = hotelData.heroImage || "";
@@ -239,6 +241,7 @@ hotelForm.addEventListener("submit", async (event) => {
     contact: formData.get("contact") || hotelData.contact,
     phone: formData.get("phone") || hotelData.phone,
     facebook: formData.get("facebook") || hotelData.facebook,
+    googleMap: formData.get("googleMap") || hotelData.googleMap,
     video: formData.get("video") || hotelData.video,
     webchatImage: formData.get("webchatImage") || hotelData.webchatImage,
     name: buildMultilingualObject("name", formData),

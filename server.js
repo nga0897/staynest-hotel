@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
@@ -102,7 +103,8 @@ const mediaUpload = multer({
     const extension = path.extname(file.originalname).toLowerCase();
     const isAllowed =
       ALLOWED_MEDIA_EXTENSIONS.has(extension) &&
-      (file.mimetype.startsWith("image/") || file.mimetype.startsWith("video/"));
+      (file.mimetype.startsWith("image/") ||
+        file.mimetype.startsWith("video/"));
     callback(null, isAllowed);
   },
 });

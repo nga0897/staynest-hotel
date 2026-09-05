@@ -1,6 +1,6 @@
 {
   "name": {
-    "vi": "Sala Bảo Nguyên Hotel",
+    "vi": "Sala Bảo Nguyên",
     "zh": "SALA BẢO NGUYÊN 酒店",
     "ko": "SALA BẢO NGUYÊN 호텔"
   },
@@ -10,7 +10,7 @@
     "ko": "논트랙"
   },
   "address": {
-    "vi": "Huỳnh Văn Nghệ, Hiệp Phước, Nhơn Trạch, Đồng Nai, Việt Nam",
+    "vi": "Đường D1, huỳnh văn nghệ, Khu tái định cư hiệp phước 3, nhơn trạch , đồng nai",
     "zh": "越南 Đồng奈 省 Nhơn Trạch 县 Hiệp Phước Huỳnh Văn Nghệ",
     "ko": "베트남 동나이성 논트랙시 Hiệp Phước Huỳnh Văn Nghệ"
   },
@@ -109,5 +109,6 @@
       },
       "id": "room-1787980259072"
     }
-  ]
+  ],
+  "googleMap": "https://www.google.com/maps/place/Sala+B%E1%BA%A3o+Nguy%C3%AAn+Hotel/@10.7447783,106.9396524,1108m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31751911aa6b5b7f:0x2f3b9af3c724d7db!8m2!3d10.7447783!4d106.9396524!16s%2Fg%2F11zxdrn72f?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
 }
